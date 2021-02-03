@@ -17,7 +17,7 @@ export default function Item({ item }) {
     );
   };
   return (
-    <div>
+    <div className="repair-item">
       <span>{owner}</span>
       <span>{model}</span>
       <span>{description}</span>
@@ -25,7 +25,7 @@ export default function Item({ item }) {
       <button onClick={handleUpdate}>Update</button>
       <button onClick={(e) => dispatch(repairRemoved(id))}>Delete</button>
       <button onClick={(e) => dispatch(repairResolved(id))}>
-        {resolved ? "Done" : "Undo"}
+        {!resolved ? "Done" : "Undo"}
       </button>
     </div>
   );

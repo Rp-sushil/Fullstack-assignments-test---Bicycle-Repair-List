@@ -45,7 +45,9 @@ export default function Form() {
   return (
     <div>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="owner-text-box">Owner</label>
         <input
+          id="owner-text-box"
           type="text"
           name="owner"
           value={owner}
@@ -53,7 +55,9 @@ export default function Form() {
           placeholder="owner"
           required
         />
+        <label htmlFor="model-text-box">Model</label>
         <input
+          id="model-text-box"
           type="text"
           name="model"
           value={model}
@@ -61,7 +65,9 @@ export default function Form() {
           placeholder="model"
           required
         />
+        <label htmlFor="description-text-box">Description</label>
         <input
+          id="description-text-box"
           type="text"
           name="description"
           value={description}

@@ -6,7 +6,7 @@ import List from "./List";
 function App() {
   return (
     <div className="App">
-      <header>Rapairing List</header>
+      <header>Bicycle Repair App</header>
       <Form />
       <hr></hr>
       <List />
