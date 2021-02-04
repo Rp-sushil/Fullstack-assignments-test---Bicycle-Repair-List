@@ -54,7 +54,6 @@ function reducer(state = initalState, action) {
         ...state,
         items: state.items.concat([action.payload]),
         item: { owner: "", model: "", description: "" },
-        isSaveBtnClicked: true,
         editMode: false,
       };
 
