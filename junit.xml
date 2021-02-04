@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="jest tests" tests="5" failures="0" time="3.285">
-  <testsuite name="Rendering Test. " errors="0" failures="0" skipped="0" timestamp="2021-02-04T13:33:10" time="2.397" tests="5">
-    <testcase classname="Rendering Test.  Heading and labels Exist" name="Rendering Test.  Heading and labels Exist" time="0.032">
+<testsuites name="jest tests" tests="5" failures="0" time="4.773">
+  <testsuite name="Rendering Test. " errors="0" failures="0" skipped="0" timestamp="2021-02-04T14:35:07" time="3.418" tests="5">
+    <testcase classname="Rendering Test.  Heading and labels Exist" name="Rendering Test.  Heading and labels Exist" time="0.04">
     </testcase>
-    <testcase classname="Adding repair Adding a repair " name="Adding repair Adding a repair " time="0.032">
+    <testcase classname="Adding repair Adding a repair " name="Adding repair Adding a repair " time="0.039">
     </testcase>
-    <testcase classname="Testing Update, Delete, Done/Undo button functionality Updating a repair " name="Testing Update, Delete, Done/Undo button functionality Updating a repair " time="0.019">
+    <testcase classname="Testing Update, Delete, Done/Undo button functionality Updating a repair " name="Testing Update, Delete, Done/Undo button functionality Updating a repair " time="0.023">
     </testcase>
-    <testcase classname="Testing Update, Delete, Done/Undo button functionality Deleting a repair " name="Testing Update, Delete, Done/Undo button functionality Deleting a repair " time="0.014">
+    <testcase classname="Testing Update, Delete, Done/Undo button functionality Deleting a repair " name="Testing Update, Delete, Done/Undo button functionality Deleting a repair " time="0.023">
     </testcase>
-    <testcase classname="Testing Update, Delete, Done/Undo button functionality Undoing the resolved action a repair " name="Testing Update, Delete, Done/Undo button functionality Undoing the resolved action a repair " time="0.019">
+    <testcase classname="Testing Update, Delete, Done/Undo button functionality Undoing the resolved action a repair " name="Testing Update, Delete, Done/Undo button functionality Undoing the resolved action a repair " time="0.016">
     </testcase>
   </testsuite>
 </testsuites>

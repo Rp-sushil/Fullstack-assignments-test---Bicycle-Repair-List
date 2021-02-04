@@ -27,8 +27,6 @@ const initalState = {
   items: [],
   item: { owner: "", model: "", description: "", resolved: false },
   editMode: false,
-  isSaveBtnClicked: false,
-  isEditBtnClicked: false,
 };
 
 function listReducer(state = initalState, action) {
@@ -40,7 +38,6 @@ function listReducer(state = initalState, action) {
         ...state,
         items: state.items.concat([action.payload]),
         item: { owner: "", model: "", description: "" },
-        isSaveBtnClicked: true,
         editMode: false,
       };
 

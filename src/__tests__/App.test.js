@@ -7,14 +7,6 @@ import App from "../components/App";
 import { combineReducers } from "redux";
 import { v4 as uuidv4 } from "uuid";
 
-// let lastId = 0;
-// const initalState = {
-//   items: [],
-//   item: { owner: "", model: "", description: "", resolved: false },
-//   editMode: false,
-//   isSaveBtnClicked: false,
-//   isEditBtnClicked: false,
-// };
 const initalState = {
   items: [
     {
@@ -41,8 +33,6 @@ const initalState = {
   ],
   item: { owner: "", model: "", description: "", resolved: false },
   editMode: false,
-  isSaveBtnClicked: false,
-  isEditBtnClicked: false,
 };
 function reducer(state = initalState, action) {
   switch (action.type) {
