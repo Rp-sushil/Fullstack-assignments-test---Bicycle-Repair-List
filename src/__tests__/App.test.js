@@ -1,11 +1,22 @@
 import React from "react";
 import { createStore } from "redux";
 import { Provider } from "react-redux";
-import { render, fireEvent, cleanup, getByText } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  cleanup,
+  getByText,
+  waitFor,
+  act,
+} from "@testing-library/react";
 // import '@testing-library/jest-dom/extend-expect';
 import App from "../components/App";
 import { combineReducers } from "redux";
 import { v4 as uuidv4 } from "uuid";
+
+afterEach(() => {
+  cleanup();
+});
 
 const initalState = {
   items: [
@@ -177,7 +188,18 @@ describe("Testing Update, Delete, Done/Undo button functionality", () => {
     expect(document.getElementById("model-text-box").value).toEqual("");
     expect(document.getElementById("description-text-box").value).toEqual("");
   });
+  it("Resolving a repair ", () => {
+    const { getByText } = renderWithRedux(<App />);
 
+    fireEvent.click(document.getElementsByTagName("button")[3]);
+    const repairItems = document.getElementsByClassName("repair-item");
+
+    expect(repairItems.length).toEqual(3);
+    expect(repairItems[0].innerHTML).toMatch("Chirag");
+    expect(repairItems[0].innerHTML).toMatch("Undo");
+    expect(repairItems[0].innerHTML).toMatch("Update");
+    expect(repairItems[0].innerHTML).toMatch("Delete");
+  });
   it("Deleting a repair ", () => {
     const { getByText } = renderWithRedux(<App />);
 
@@ -190,15 +212,31 @@ describe("Testing Update, Delete, Done/Undo button functionality", () => {
   it("Undoing the resolved action a repair ", () => {
     const { getByText } = renderWithRedux(<App />);
 
-    fireEvent.click(document.getElementsByTagName("button")[3]);
-    fireEvent.click(document.getElementsByTagName("button")[3]);
+    act(() => {
+      fireEvent.click(document.getElementsByTagName("button")[3]);
+      fireEvent.click(document.getElementsByTagName("button")[3]);
+    });
 
     const repairItems = document.getElementsByClassName("repair-item");
 
-    expect(repairItems.length).toEqual(3);
-    expect(repairItems[0].innerHTML).toMatch("Chirag");
-    expect(repairItems[0].innerHTML).toMatch("Done");
-    expect(repairItems[0].innerHTML).toMatch("Update");
-    expect(repairItems[0].innerHTML).toMatch("Delete");
+    waitFor(() => {
+      expect(repairItems.length).toEqual(3);
+      expect(repairItems[0].innerHTML).toMatch("Chirag");
+      expect(repairItems[0].innerHTML).toMatch("Done");
+      expect(repairItems[0].innerHTML).toMatch("Update");
+      expect(repairItems[0].innerHTML).toMatch("Delete");
+    });
+  });
+  it("Update button click -> Fill input Boxes -> Done button Click -> should clear input boxes", () => {
+    const { getByText } = renderWithRedux(<App />);
+    act(() => {
+      fireEvent.click(document.getElementsByTagName("button")[1]);
+      fireEvent.click(document.getElementsByTagName("button")[3]);
+    });
+    waitFor(() => {
+      expect(document.getElementById("owner-text-box").value).toEqual("");
+      expect(document.getElementById("model-text-box").value).toEqual("");
+      expect(document.getElementById("description-text-box").value).toEqual("");
+    });
   });
 });
